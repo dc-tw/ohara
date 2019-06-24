@@ -56,7 +56,7 @@ public interface Producer<Key, Value> extends Releasable {
     private Map<String, String> options = Collections.emptyMap();
     private String connectionProps;
     // default noAcks
-    private short numberOfAcks = 0;
+    private short numberOfAcks = 1;
     private Serializer<Key> keySerializer = null;
     private Serializer<Value> valueSerializer = null;
 
