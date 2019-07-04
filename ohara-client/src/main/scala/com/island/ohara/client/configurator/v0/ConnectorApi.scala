@@ -248,11 +248,11 @@ object ConnectorApi {
         SettingDefinition.CONNECTOR_CLASS_DEFINITION.key() -> (if (className == null) JsNull
                                                                else JsString(CommonUtils.requireNonEmpty(className))),
         SettingDefinition.COLUMNS_DEFINITION.key() -> (if (columns == null) JsNull
-                                                       else if (columns.isEmpty) JsArray()
+                                                       else if (columns.isEmpty) JsArray.empty
                                                        else
                                                          PropGroups.ofColumns(columns.asJava).toJsonString.parseJson),
         SettingDefinition.TOPIC_NAMES_DEFINITION.key() -> (if (topicNames == null) JsNull
-                                                           else if (topicNames.isEmpty) JsArray()
+                                                           else if (topicNames.isEmpty) JsArray.empty
                                                            else StringList.toJsonString(topicNames.asJava).parseJson),
         SettingDefinition.NUMBER_OF_TASKS_DEFINITION.key() -> JsNumber(CommonUtils.requirePositiveInt(numberOfTasks)),
         SettingDefinition.WORKER_CLUSTER_NAME_DEFINITION
